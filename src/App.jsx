@@ -6,7 +6,7 @@ const Dashboard = () => {
 
   const fetchQuizzes = async () => {
     try {
-      const res = await axios.get("http://localhost:8080/");
+      const res = await axios.get("https://backend-1-xe3y.onrender.com/");
       const sorted = res.data.sort((a, b) => {
         if (b.score === a.score) {
           return a.time - b.time; // Faster time wins if scores are equal
@@ -22,7 +22,7 @@ const Dashboard = () => {
   const handleDeleteAll = async () => {
     if (window.confirm("Are you sure you want to delete all quiz records?")) {
       try {
-        await axios.get("http://localhost:8080/delete");
+        await axios.get("https://backend-1-xe3y.onrender.com/delete");
         setQuizzes([]);
       } catch (err) {
         console.error("Error deleting data", err);
